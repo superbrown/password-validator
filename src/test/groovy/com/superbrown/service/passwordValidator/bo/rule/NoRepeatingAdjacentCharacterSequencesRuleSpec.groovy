@@ -3,7 +3,7 @@ package com.superbrown.service.passwordValidator.bo.rule
 import spock.lang.Specification
 
 /**
- * Created by Spock on 2/22/2017.
+ * Created by Mike on 2/22/2017.
  */
 class NoRepeatingAdjacentCharacterSequencesRuleSpec extends Specification{
 

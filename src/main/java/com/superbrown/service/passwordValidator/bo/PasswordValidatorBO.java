@@ -1,6 +1,6 @@
 package com.superbrown.service.passwordValidator.bo;
 
-import com.superbrown.service.passwordValidator.bo.rule.ValidationRule;
+import com.superbrown.service.passwordValidator.bo.rule.PasswordValidationRule;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -11,13 +11,13 @@ import java.util.List;
 public class PasswordValidatorBO {
 
 	@Autowired
-	protected List<ValidationRule> validationRules;
+	protected List<PasswordValidationRule> passwordValidationRules;
 
-	public boolean isALegalPassword(String username, String password) {
+	public boolean isAValidPassword(String username, String password) {
 
-		for (ValidationRule validationRule : validationRules) {
+		for (PasswordValidationRule passwordValidationRule : passwordValidationRules) {
 
-			if (validationRule.isAValidPassword(username, password) == false) {
+			if (passwordValidationRule.isAValidPassword(username, password) == false) {
 				return false;
 			}
 		}

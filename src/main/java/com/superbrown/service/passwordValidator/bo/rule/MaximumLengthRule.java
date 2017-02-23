@@ -5,7 +5,7 @@ import com.superbrown.service.passwordValidator.configuration.PasswordValidatorC
 /**
  * Created by Mike on 2/22/2017.
  */
-public class MaximumLengthRule extends ValidationRule {
+public class MaximumLengthRule extends PasswordValidationRule {
 
 	protected Integer maximumLengthAllowed;
 

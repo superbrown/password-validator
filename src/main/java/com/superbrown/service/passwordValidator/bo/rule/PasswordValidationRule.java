@@ -5,11 +5,11 @@ import com.superbrown.service.passwordValidator.configuration.PasswordValidatorC
 /**
  * Created by Mike on 2/22/2017.
  */
-public abstract class ValidationRule {
+public abstract class PasswordValidationRule {
 
 	protected PasswordValidatorConfiguration configuration;
 
-	public ValidationRule(PasswordValidatorConfiguration configuration) {
+	public PasswordValidationRule(PasswordValidatorConfiguration configuration) {
 		this.configuration = configuration;
 	}
 

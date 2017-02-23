@@ -5,7 +5,7 @@ import com.superbrown.service.passwordValidator.configuration.PasswordValidatorC
 /**
  * Created by Mike on 2/22/2017.
  */
-public class NoRepeatingAdjacentCharacterSequencesRule extends ValidationRule {
+public class NoRepeatingAdjacentCharacterSequencesRule extends PasswordValidationRule {
 
 	public NoRepeatingAdjacentCharacterSequencesRule(PasswordValidatorConfiguration configuration) {
 

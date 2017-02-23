@@ -1,7 +1,7 @@
 package com.superbrown.service.passwordValidator.configuration;
 
 import com.superbrown.service.passwordValidator.bo.PasswordValidatorBO;
-import com.superbrown.service.passwordValidator.bo.rule.ValidationRule;
+import com.superbrown.service.passwordValidator.bo.rule.PasswordValidationRule;
 import com.superbrown.service.passwordValidator.dao.PasswordDAO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -49,9 +49,9 @@ public class PasswordValidatorConfiguration {
 
 	@Bean(name="validationRules")
 	@Scope("prototype")
-	public List<ValidationRule> createValidationRules() {
+	public List<PasswordValidationRule> createValidationRules() {
 
-		List<ValidationRule> validationRules = new ArrayList();
+		List<PasswordValidationRule> passwordValidationRules = new ArrayList();
 
 		for (String validationRuleClassName : validationRuleClassNames) {
 
@@ -59,15 +59,15 @@ public class PasswordValidatorConfiguration {
 			try {
 				clazz = Class.forName(validationRuleClassName);
 				Constructor<?> ctor = clazz.getDeclaredConstructor(PasswordValidatorConfiguration.class);
-				ValidationRule validationRule = (ValidationRule)ctor.newInstance(this);
-				validationRules.add(validationRule);
+				PasswordValidationRule passwordValidationRule = (PasswordValidationRule)ctor.newInstance(this);
+				passwordValidationRules.add(passwordValidationRule);
 
 			} catch (Exception e) {
 				throw new RuntimeException("Failed to intialize validation rule.", e);
 			}
 		}
 
-		return validationRules;
+		return passwordValidationRules;
 	}
 
 	public int getMaximumLengthAllowed() {

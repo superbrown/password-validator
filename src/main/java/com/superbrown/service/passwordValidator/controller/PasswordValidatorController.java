@@ -23,7 +23,7 @@ public class PasswordValidatorController {
 			@RequestParam(value="username") String username,
 			@RequestParam(value="password") String password) {
 
-		boolean isAValidPassword = passwordValidatorBO.isALegalPassword(username, password);
+		boolean isAValidPassword = passwordValidatorBO.isAValidPassword(username, password);
 
 		return new ValidationState(username, password, isAValidPassword);
 	}
