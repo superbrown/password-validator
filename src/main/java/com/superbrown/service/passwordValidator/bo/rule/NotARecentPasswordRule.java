@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Mike on 2/22/2017.
  */
-public class NotARecentPasswordRule extends ValidationRule {
+public class NotARecentPasswordRule extends PasswordValidationRule {
 
 	public static final int NUMBER_OF_PASSWORDS_IN_HISOTRY_WE_CARE_ABOUT = 3;
 

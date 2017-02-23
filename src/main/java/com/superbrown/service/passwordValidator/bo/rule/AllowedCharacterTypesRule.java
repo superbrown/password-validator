@@ -5,7 +5,7 @@ import com.superbrown.service.passwordValidator.configuration.PasswordValidatorC
 /**
  * Created by Mike on 2/22/2017.
  */
-public class AllowedCharacterTypesRule extends ValidationRule {
+public class AllowedCharacterTypesRule extends PasswordValidationRule {
 
 	public AllowedCharacterTypesRule(PasswordValidatorConfiguration configuration) {
 
@@ -34,8 +34,8 @@ public class AllowedCharacterTypesRule extends ValidationRule {
 				numberFound = true;
 			}
 			else {
-				// if any charagter is neither a lowercase letter or a number, the string isn't
-				// legalPassword
+				// if any character is neither a lowercase letter or a number, the string isn't
+				// password legal password
 				return false;
 			}
 		}

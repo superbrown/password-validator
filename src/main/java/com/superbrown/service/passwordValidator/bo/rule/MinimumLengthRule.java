@@ -5,7 +5,7 @@ import com.superbrown.service.passwordValidator.configuration.PasswordValidatorC
 /**
  * Created by Mike on 2/22/2017.
  */
-public class MinimumLengthRule extends ValidationRule {
+public class MinimumLengthRule extends PasswordValidationRule {
 
 	protected Integer minimumLengthAllowed;
 
