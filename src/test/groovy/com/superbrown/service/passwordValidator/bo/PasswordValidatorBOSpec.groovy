@@ -93,20 +93,20 @@ class PasswordValidatorBOSpec extends Specification{
         given:
         PasswordDAO passwordDAO = new PasswordDAO()
         PasswordValidatorConfiguration configuration = Spy(PasswordValidatorConfiguration)
-        configuration.getMinimumLengthAllowed() >> 5
-        configuration.getMaximumLengthAllowed() >> 12
         configuration.createPasswordValidatorBO() >> passwordDAO
 
-        AllowedCharacterTypesRule allowedCharacterTypesRule = new AllowedCharacterTypesRule(configuration)
+        AllowedCharacterTypesRule allowedCharacterTypesRule = new AllowedCharacterTypesRule()
 
-        MinimumLengthRule minimumLengthRule = new MinimumLengthRule(configuration)
+        MinimumLengthRule minimumLengthRule = new MinimumLengthRule()
+        minimumLengthRule.minimumLengthAllowed = 5
 
-        MaximumLengthRule maximumLengthRule = new MaximumLengthRule(configuration)
+        MaximumLengthRule maximumLengthRule = new MaximumLengthRule()
+        maximumLengthRule.maximumLengthAllowed = 12
 
         NoRepeatingAdjacentCharacterSequencesRule noRepeatingAdjacentCharacterSequencesRule =
-                new NoRepeatingAdjacentCharacterSequencesRule(configuration)
+                new NoRepeatingAdjacentCharacterSequencesRule()
 
-        NotARecentPasswordRule notARecentPasswordRule = new NotARecentPasswordRule(configuration)
+        NotARecentPasswordRule notARecentPasswordRule = new NotARecentPasswordRule()
         notARecentPasswordRule.passwordDAO = passwordDAO
 
         List<PasswordValidationRule> validationRules = new ArrayList<>()

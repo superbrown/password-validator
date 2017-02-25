@@ -1,6 +1,5 @@
 package com.superbrown.service.passwordValidator.bo.rule
 
-import com.superbrown.service.passwordValidator.configuration.PasswordValidatorConfiguration
 import spock.lang.Specification
 /**
  * Created by Mike on 2/22/2017.
@@ -10,10 +9,8 @@ class MaximumLengthRuleSpec extends Specification{
     def "when length is set to 3"() {
 
         given:
-        PasswordValidatorConfiguration configuration = Spy(PasswordValidatorConfiguration)
-        configuration.getMaximumLengthAllowed() >> 3
-
-        MaximumLengthRule rule = new MaximumLengthRule(configuration)
+        MaximumLengthRule rule = new MaximumLengthRule()
+        rule.maximumLengthAllowed = 3
 
         when:
         boolean result_0 = rule.isAValidPassword("username", "")
@@ -33,10 +30,8 @@ class MaximumLengthRuleSpec extends Specification{
     def "when length is set to 1"() {
 
         given:
-        PasswordValidatorConfiguration configuration = Spy(PasswordValidatorConfiguration)
-        configuration.getMaximumLengthAllowed() >> 1
-
-        MaximumLengthRule rule = new MaximumLengthRule(configuration)
+        MaximumLengthRule rule = new MaximumLengthRule()
+        rule.maximumLengthAllowed = 1
 
         when:
         boolean result_0 = rule.isAValidPassword("username", "")
@@ -56,10 +51,8 @@ class MaximumLengthRuleSpec extends Specification{
     def "when length is set to 0"() {
 
         given:
-        PasswordValidatorConfiguration configuration = Spy(PasswordValidatorConfiguration)
-        configuration.getMaximumLengthAllowed() >> 0
-
-        MaximumLengthRule rule = new MaximumLengthRule(configuration)
+        MaximumLengthRule rule = new MaximumLengthRule()
+        rule.maximumLengthAllowed = 0
 
         when:
         boolean result_0 = rule.isAValidPassword("username", "")

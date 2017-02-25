@@ -1,19 +1,14 @@
 package com.superbrown.service.passwordValidator.bo.rule;
 
-import com.superbrown.service.passwordValidator.configuration.PasswordValidatorConfiguration;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Created by Mike on 2/22/2017.
  */
-public class MinimumLengthRule extends PasswordValidationRule {
+public class MinimumLengthRule implements PasswordValidationRule {
 
+	@Value("${passwordValidator.rule.minimumLength}")
 	protected Integer minimumLengthAllowed;
-
-	public MinimumLengthRule(PasswordValidatorConfiguration configuration) {
-
-		super(configuration);
-		minimumLengthAllowed = configuration.getMinimumLengthAllowed();
-	}
 
 	public boolean isAValidPassword(String username, String password) {
 

@@ -1,19 +1,16 @@
 package com.superbrown.service.passwordValidator.bo.rule;
 
-import com.superbrown.service.passwordValidator.configuration.PasswordValidatorConfiguration;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Mike on 2/22/2017.
  */
-public class MaximumLengthRule extends PasswordValidationRule {
+@Component
+public class MaximumLengthRule implements PasswordValidationRule {
 
+	@Value("${passwordValidator.rule.maximumLength}")
 	protected Integer maximumLengthAllowed;
-
-	public MaximumLengthRule(PasswordValidatorConfiguration configuration) {
-
-		super(configuration);
-		maximumLengthAllowed = configuration.getMaximumLengthAllowed();
-	}
 
 	public boolean isAValidPassword(String username, String password) {
 
