@@ -1,9 +1,7 @@
 package com.superbrown.service.passwordValidator.bo.rule
 
-import com.superbrown.service.passwordValidator.configuration.PasswordValidatorConfiguration
 import com.superbrown.service.passwordValidator.dao.PasswordDAO
 import spock.lang.Specification
-
 /**
  * Created by Mike on 2/22/2017.
  */
@@ -18,10 +16,8 @@ class NotARecentPasswordRuleSpec extends Specification{
         recentlyUsedPasswords.add("two")
         recentlyUsedPasswords.add("three")
 
-        PasswordValidatorConfiguration configuration = Spy(PasswordValidatorConfiguration)
-        configuration.createPasswordDAO() >> passwordDAO
-
-        NotARecentPasswordRule rule = new NotARecentPasswordRule(configuration)
+        NotARecentPasswordRule rule = new NotARecentPasswordRule()
+        rule.passwordDAO = passwordDAO
 
         boolean returnedValue_one
         boolean returnedValue_two
@@ -50,10 +46,8 @@ class NotARecentPasswordRuleSpec extends Specification{
         List<String> recentlyUsedPasswords = new ArrayList<>()
         recentlyUsedPasswords.add("one")
 
-        PasswordValidatorConfiguration configuration = Spy(PasswordValidatorConfiguration)
-        configuration.createPasswordDAO() >> passwordDAO
-
-        NotARecentPasswordRule rule = new NotARecentPasswordRule(configuration)
+        NotARecentPasswordRule rule = new NotARecentPasswordRule()
+        rule.passwordDAO = passwordDAO
 
         when:
         boolean returnedValue_one = rule.isAValidPassword("username", "one")
@@ -77,10 +71,8 @@ class NotARecentPasswordRuleSpec extends Specification{
         PasswordDAO passwordDAO = Mock()
         List<String> recentlyUsedPasswords = new ArrayList<>()
 
-        PasswordValidatorConfiguration configuration = Spy(PasswordValidatorConfiguration)
-        configuration.createPasswordDAO() >> passwordDAO
-
-        NotARecentPasswordRule rule = new NotARecentPasswordRule(configuration)
+        NotARecentPasswordRule rule = new NotARecentPasswordRule()
+        rule.passwordDAO = passwordDAO
 
         boolean returnedValue_one
         boolean returnedValue_two

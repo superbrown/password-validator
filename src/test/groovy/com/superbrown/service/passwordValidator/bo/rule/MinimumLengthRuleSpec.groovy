@@ -1,8 +1,6 @@
 package com.superbrown.service.passwordValidator.bo.rule
 
-import com.superbrown.service.passwordValidator.configuration.PasswordValidatorConfiguration
 import spock.lang.Specification
-
 /**
  * Created by Mike on 2/22/2017.
  */
@@ -11,10 +9,8 @@ class MinimumLengthRuleSpec extends Specification{
     def "when length is set to 3"() {
 
         given:
-        PasswordValidatorConfiguration configuration = new PasswordValidatorConfiguration()
-        configuration.minimumLengthAllowed = 3
-
-        MinimumLengthRule rule = new MinimumLengthRule(configuration)
+        MinimumLengthRule rule = new MinimumLengthRule()
+        rule.minimumLengthAllowed = 3
 
         when:
         boolean result_0 = rule.isAValidPassword("username", "")
@@ -34,10 +30,8 @@ class MinimumLengthRuleSpec extends Specification{
     def "when length is set to 1"() {
 
         given:
-        PasswordValidatorConfiguration configuration = new PasswordValidatorConfiguration()
-        configuration.minimumLengthAllowed = 1
-
-        MinimumLengthRule rule = new MinimumLengthRule(configuration)
+        MinimumLengthRule rule = new MinimumLengthRule()
+        rule.minimumLengthAllowed = 1
 
         when:
         boolean result_0 = rule.isAValidPassword("username", "")
@@ -57,10 +51,8 @@ class MinimumLengthRuleSpec extends Specification{
     def "when length is set to 0"() {
 
         given:
-        PasswordValidatorConfiguration configuration = new PasswordValidatorConfiguration()
-        configuration.minimumLengthAllowed = 0
-
-        MinimumLengthRule rule = new MinimumLengthRule(configuration)
+        MinimumLengthRule rule = new MinimumLengthRule()
+        rule.minimumLengthAllowed = 0
 
         when:
         boolean result_0 = rule.isAValidPassword("username", "")

@@ -1,16 +1,12 @@
 package com.superbrown.service.passwordValidator.bo.rule;
 
-import com.superbrown.service.passwordValidator.configuration.PasswordValidatorConfiguration;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Mike on 2/22/2017.
  */
-public class AllowedCharacterTypesRule extends PasswordValidationRule {
-
-	public AllowedCharacterTypesRule(PasswordValidatorConfiguration configuration) {
-
-		super(configuration);
-	}
+@Component
+public class AllowedCharacterTypesRule implements PasswordValidationRule {
 
 	public boolean isAValidPassword(String username, String password) {
 
