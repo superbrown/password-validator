@@ -32,12 +32,6 @@ public class PasswordValidatorConfiguration {
 	@Value("${passwordValidator.validationRuleClassNames}")
 	private List<String> validationRuleClassNames;
 
-	@Value("${passwordValidator.rule.maximumLength}")
-	private int maximumLengthAllowed;
-
-	@Value("${passwordValidator.rule.minimumLength}")
-	private int minimumLengthAllowed;
-
 	@Bean(name="passwordValidatorBO")
 	@Scope("prototype")
 	public PasswordValidatorBO createPasswordValidatorBO() {
@@ -71,14 +65,6 @@ public class PasswordValidatorConfiguration {
 		}
 
 		return passwordValidationRules;
-	}
-
-	public int getMaximumLengthAllowed() {
-		return maximumLengthAllowed;
-	}
-
-	public int getMinimumLengthAllowed() {
-		return minimumLengthAllowed;
 	}
 
 	// necessary to have Spring parse comma separated params as lists
